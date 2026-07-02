@@ -144,7 +144,7 @@ export default function Index() {
           </div>
           <div className="flex justify-center">
             <img
-              src={PRODUCT_IMG}
+              src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/18ce371f-6e06-4497-912a-b1fa351e2144.png"
               alt="ALBABAGNO"
               className="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:scale-105"
             />
