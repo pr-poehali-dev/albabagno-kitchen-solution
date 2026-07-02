@@ -335,15 +335,15 @@ export default function Index() {
             <div className="mt-8 space-y-4">
               <div className="flex items-center gap-3">
                 <Icon name="Phone" size={20} className="text-silver" />
-                <span>+7 (000) 000-00-00</span>
+                <span>+7 (980) 888-00-77</span>
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="Mail" size={20} className="text-silver" />
-                <span>info@albabagno.ru</span>
+                <span>art9019009090@mail.ru</span>
               </div>
               <div className="flex items-center gap-3">
                 <Icon name="MapPin" size={20} className="text-silver" />
-                <span>Москва, Россия</span>
+                <span>Москва, Зеленоград, 3с2</span>
               </div>
             </div>
           </div>
