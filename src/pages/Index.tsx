@@ -91,20 +91,21 @@ export default function Index() {
   const ref = useReveal();
 
   return (
-    <div ref={ref} className="min-h-screen bg-white font-sans text-[#2F343B]">
+    <div ref={ref} className="min-h-screen font-sans" style={{background: `url(${BG_IMG}) center/cover fixed`, backgroundColor: '#1a2535'}}>
 
       {/* HEADER */}
-      <header className="fixed top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 flex h-[70px] items-center justify-between">
-          <ABLogo />
-          <nav className="hidden lg:flex gap-8 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#2F343B]/70">
-            <a href="#product" className="hover:text-[#274C77] transition-colors">О продукте</a>
-            <a href="#specs" className="hover:text-[#274C77] transition-colors">Характеристики</a>
-            <a href="#advantages" className="hover:text-[#274C77] transition-colors">Преимущества</a>
-            <a href="#reviews" className="hover:text-[#274C77] transition-colors">Отзывы</a>
-            <a href="#contacts" className="hover:text-[#274C77] transition-colors">Контакты</a>
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 shadow-sm" style={{background: `url(${BG_IMG}) center/cover`, backgroundColor: '#1a2535'}}>
+        <div className="absolute inset-0 bg-[#1a2535]/80 backdrop-blur-sm" />
+        <div className="relative max-w-7xl mx-auto px-6 flex h-[70px] items-center justify-between">
+          <ABLogo light />
+          <nav className="hidden lg:flex gap-8 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/70">
+            <a href="#product" className="hover:text-white transition-colors">О продукте</a>
+            <a href="#specs" className="hover:text-white transition-colors">Характеристики</a>
+            <a href="#advantages" className="hover:text-white transition-colors">Преимущества</a>
+            <a href="#reviews" className="hover:text-white transition-colors">Отзывы</a>
+            <a href="#contacts" className="hover:text-white transition-colors">Контакты</a>
           </nav>
-          <a href="#contacts" className="hidden md:inline-flex items-center border border-[#2F343B] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:bg-[#2F343B] hover:text-white transition-all">
+          <a href="#contacts" className="hidden md:inline-flex items-center border border-white/50 text-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:bg-white hover:text-[#1a2535] transition-all">
             Связаться с нами
           </a>
         </div>
@@ -117,32 +118,32 @@ export default function Index() {
           alt="ALBABAGNO"
           className="w-full object-cover"
         />
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 md:hidden">
-          <a href="tel:+79808880077" className="bg-[#274C77] text-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.1em]">
-            Купить
+        <div className="absolute bottom-8 left-8 md:bottom-12 md:left-16">
+          <a href="tel:+79808880077" className="inline-flex items-center gap-2 bg-[#274C77] text-white px-8 py-3 text-sm font-bold uppercase tracking-[0.15em] hover:bg-[#1e3a5c] transition-colors shadow-lg">
+            Купить сейчас
           </a>
         </div>
       </section>
 
-      {/* ПОЧЕМУ ALBABAGNO — белая секция */}
-      <section id="advantages" className="py-16 bg-white">
+      {/* ПОЧЕМУ ALBABAGNO */}
+      <section id="advantages" className="py-16 bg-[#1a2535]/60">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-12">
-            <h2 className="font-display text-3xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">
+            <h2 className="font-display text-3xl font-bold uppercase tracking-[0.15em] text-white">
               Почему выбирают ALBABAGNO
             </h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {advantages.map((a) => (
-              <div key={a.title} className="reveal border border-gray-200 p-6 text-center hover:border-[#274C77] hover:shadow-md transition-all group">
-                <div className="mb-4 flex justify-center text-[#274C77]">
+              <div key={a.title} className="reveal border border-white/10 bg-white/5 p-6 text-center hover:bg-white/10 hover:border-white/30 transition-all group backdrop-blur-sm">
+                <div className="mb-4 flex justify-center text-white/70 group-hover:text-white transition-colors">
                   <Icon name={a.icon} size={32} />
                 </div>
-                <h3 className="font-semibold text-xs uppercase tracking-[0.1em] mb-2 text-[#2F343B]">{a.title}</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">{a.text}</p>
+                <h3 className="font-semibold text-xs uppercase tracking-[0.1em] mb-2 text-white">{a.title}</h3>
+                <p className="text-xs text-white/50 leading-relaxed">{a.text}</p>
                 <div className="mt-3 flex justify-center gap-0.5">
                   <span className="h-[2px] w-2 bg-[#008C45]" />
-                  <span className="h-[2px] w-2 bg-gray-300" />
+                  <span className="h-[2px] w-2 bg-white/40" />
                   <span className="h-[2px] w-2 bg-[#CD212A]" />
                 </div>
               </div>
@@ -152,36 +153,36 @@ export default function Index() {
       </section>
 
       {/* О ПРОДУКТЕ */}
-      <section id="product" className="py-16 bg-gray-50">
+      <section id="product" className="py-16 bg-[#1a2535]/80">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="reveal flex justify-center">
             <img src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/7a3ad343-0366-4629-a2d7-6c2d3a6a85ce.jpg" alt="ALBABAGNO" className="w-full max-w-md rounded-xl object-cover" />
           </div>
           <div className="reveal">
-            <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-[0.1em] mb-4 text-[#2F343B]">
+            <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-[0.1em] mb-4 text-white">
               Измельчитель пищевых отходов ALBABAGNO
             </h2>
-            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
+            <p className="text-white/50 text-sm mb-6 leading-relaxed">
               Современное решение для кухни, позволяющее быстро перерабатывать остатки пищи.
             </p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#2F343B]">Подходит для:</p>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] mb-3 text-white">Подходит для:</p>
                 <ul className="space-y-2">
                   {['овощей', 'фруктов', 'каш', 'мелких костей', 'скорлупы'].map((t) => (
-                    <li key={t} className="flex items-center gap-2 text-sm text-gray-600">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#274C77] shrink-0" />
+                    <li key={t} className="flex items-center gap-2 text-sm text-white/70">
+                      <span className="h-1.5 w-1.5 rounded-full bg-white/50 shrink-0" />
                       {t}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <p className="text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#2F343B]">Преимущества:</p>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] mb-3 text-white">Преимущества:</p>
                 <ul className="space-y-2">
                   {['Мощный двигатель', 'Защита от перегрузки', 'Нержавеющая камера', 'Низкий уровень вибрации', 'Долговечность'].map((b) => (
-                    <li key={b} className="flex items-center gap-2 text-sm text-gray-600">
-                      <Icon name="Check" size={14} className="shrink-0 text-[#274C77]" />
+                    <li key={b} className="flex items-center gap-2 text-sm text-white/70">
+                      <Icon name="Check" size={14} className="shrink-0 text-white/60" />
                       {b}
                     </li>
                   ))}
@@ -193,25 +194,23 @@ export default function Index() {
       </section>
 
       {/* ХАРАКТЕРИСТИКИ + КАК РАБОТАЕТ */}
-      <section id="specs" className="py-16 bg-white">
+      <section id="specs" className="py-16 bg-[#1a2535]/60">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-          {/* Specs */}
           <div className="reveal">
-            <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-[#2F343B]">
+            <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-white">
               Характеристики
             </h2>
-            <div className="divide-y divide-gray-100 border border-gray-100">
+            <div className="divide-y divide-white/10 border border-white/10">
               {specs.map(([k, v]) => (
-                <div key={k} className="flex justify-between px-4 py-3 hover:bg-gray-50 transition-colors">
-                  <span className="text-sm text-gray-500">{k}</span>
-                  <span className="text-sm font-semibold text-[#2F343B]">{v}</span>
+                <div key={k} className="flex justify-between px-4 py-3 hover:bg-white/5 transition-colors">
+                  <span className="text-sm text-white/50">{k}</span>
+                  <span className="text-sm font-semibold text-white">{v}</span>
                 </div>
               ))}
             </div>
           </div>
-          {/* How it works */}
           <div className="reveal">
-            <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-[#2F343B]">
+            <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-white">
               Как это работает
             </h2>
             <div className="flex items-center gap-2">
@@ -219,15 +218,15 @@ export default function Index() {
                 <div key={s.n} className="flex items-center gap-2 flex-1">
                   <div className="flex-1 text-center">
                     <div className="relative inline-block">
-                      <img src={s.img} alt="" className="w-20 h-20 object-cover rounded-full border-2 border-[#274C77]/20" />
+                      <img src={s.img} alt="" className="w-20 h-20 object-cover rounded-full border-2 border-white/20" />
                       <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#274C77] text-white text-xs font-bold">
                         {s.n}
                       </span>
                     </div>
-                    <p className="text-xs text-gray-500 mt-2 leading-tight">{s.title}</p>
+                    <p className="text-xs text-white/50 mt-2 leading-tight">{s.title}</p>
                   </div>
                   {i < steps.length - 1 && (
-                    <Icon name="ArrowRight" size={16} className="text-gray-300 shrink-0" />
+                    <Icon name="ArrowRight" size={16} className="text-white/30 shrink-0" />
                   )}
                 </div>
               ))}
@@ -237,10 +236,10 @@ export default function Index() {
       </section>
 
       {/* ГАЛЕРЕЯ */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#1a2535]/80">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-10">
-            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Галерея</h2>
+            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">Галерея</h2>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {[
@@ -291,25 +290,25 @@ export default function Index() {
       </section>
 
       {/* ОТЗЫВЫ */}
-      <section id="reviews" className="py-16 bg-white">
+      <section id="reviews" className="py-16 bg-[#1a2535]/60">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-10">
-            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Отзывы</h2>
+            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">Отзывы</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {reviews.map((r) => (
-              <div key={r.name} className="reveal border border-gray-100 p-6 hover:shadow-md transition-shadow">
+              <div key={r.name} className="reveal border border-white/10 bg-white/5 p-6 backdrop-blur-sm hover:bg-white/10 transition-all">
                 <div className="flex gap-0.5 mb-4">
                   {Array.from({ length: 5 }).map((_, i) => (
                     <Icon key={i} name="Star" size={16} className="fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4">«{r.text}»</p>
+                <p className="text-sm text-white/70 leading-relaxed mb-4">«{r.text}»</p>
                 <div className="flex items-center gap-2">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100">
-                    <Icon name="User" size={14} className="text-gray-400" />
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10">
+                    <Icon name="User" size={14} className="text-white/50" />
                   </div>
-                  <span className="text-xs font-semibold text-[#2F343B]">{r.name}</span>
+                  <span className="text-xs font-semibold text-white">{r.name}</span>
                 </div>
               </div>
             ))}
@@ -318,20 +317,20 @@ export default function Index() {
       </section>
 
       {/* ЧАСТЫЕ ВОПРОСЫ */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[#1a2535]/80">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-10">
-            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Частые вопросы</h2>
+            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">Частые вопросы</h2>
           </div>
           <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
             {faq.map((f) => (
-              <div key={f.q} className="flex gap-4 bg-white border border-gray-100 p-5 hover:shadow-sm transition-shadow">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#274C77]/20 text-[#274C77]">
+              <div key={f.q} className="flex gap-4 bg-white/5 border border-white/10 p-5 backdrop-blur-sm hover:bg-white/10 transition-all">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/20 text-white/60">
                   <Icon name={f.icon} size={18} />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-[#2F343B] mb-1">{f.q}</p>
-                  <p className="text-xs text-gray-500 leading-relaxed">{f.a}</p>
+                  <p className="text-sm font-semibold text-white mb-1">{f.q}</p>
+                  <p className="text-xs text-white/50 leading-relaxed">{f.a}</p>
                 </div>
               </div>
             ))}
