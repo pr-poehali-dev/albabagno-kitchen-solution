@@ -1,21 +1,16 @@
 import { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
-import { Button } from '@/components/ui/button';
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/accordion';
 
 const PRODUCT_IMG =
   'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9f69f713-3377-48c6-98f9-d12bdd107070.png';
+const BG_IMG =
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png';
 
 const advantages = [
-  { icon: 'Sparkles', title: 'Итальянский дизайн', text: 'Современный внешний вид и качественные материалы.' },
+  { icon: 'MapPin', title: 'Итальянский дизайн', text: 'Современный внешний вид и качественные материалы.' },
   { icon: 'VolumeX', title: 'Тихая работа', text: 'Минимальный уровень шума благодаря современной системе двигателя.' },
-  { icon: 'Wrench', title: 'Простая установка', text: 'Подходит практически для любой кухонной мойки.' },
-  { icon: 'Recycle', title: 'Экологично', text: 'Уменьшает количество бытовых отходов и неприятных запахов.' },
+  { icon: 'Settings', title: 'Простая установка', text: 'Подходит практически для любой кухонной мойки.' },
+  { icon: 'Leaf', title: 'Экологично', text: 'Уменьшает количество бытовых отходов и неприятных запахов.' },
 ];
 
 const specs = [
@@ -28,31 +23,31 @@ const specs = [
 ];
 
 const steps = [
-  { n: '01', icon: 'ArrowDownToLine', title: 'Остатки пищи попадают в мойку', text: 'Просто смывайте пищевые отходы водой.' },
-  { n: '02', icon: 'Zap', title: 'Измельчаются за несколько секунд', text: 'Мощный двигатель превращает их в мелкую фракцию.' },
-  { n: '03', icon: 'CheckCircle2', title: 'Безопасно уходят в канализацию', text: 'Без запахов, засоров и лишнего мусора.' },
+  { n: 1, img: PRODUCT_IMG, title: 'Остатки пищи попадают в мойку' },
+  { n: 2, img: PRODUCT_IMG, title: 'Измельчаются за несколько секунд' },
+  { n: 3, img: PRODUCT_IMG, title: 'Безопасно уходят в канализацию' },
 ];
 
 const reasons = [
-  'Премиальное качество',
-  'Надёжные материалы',
-  'Простое обслуживание',
-  'Экономия времени',
-  'Экологичное решение',
-  'Современный внешний вид',
+  { icon: 'Gem', label: 'Премиальное качество' },
+  { icon: 'Shield', label: 'Надёжные материалы' },
+  { icon: 'Wrench', label: 'Простое обслуживание' },
+  { icon: 'Clock', label: 'Экономия времени' },
+  { icon: 'Leaf', label: 'Экологичное решение' },
+  { icon: 'Sparkles', label: 'Современный внешний вид' },
 ];
 
 const reviews = [
-  { text: 'Очень тихий и мощный. Пользуемся ежедневно.', name: 'Марина К.' },
-  { text: 'Отличное качество изготовления.', name: 'Дмитрий С.' },
-  { text: 'Установили за 20 минут.', name: 'Алексей П.' },
+  { text: 'Очень тихий и мощный. Пользуемся ежедневно.', name: 'Иван П.' },
+  { text: 'Отличное качество изготовления.', name: 'Мария С.' },
+  { text: 'Установили за 20 минут.', name: 'Алексей К.' },
 ];
 
 const faq = [
-  { q: 'Шумный ли измельчитель?', a: 'Нет. Двигатель имеет низкий уровень шума.' },
-  { q: 'Можно ли установить самостоятельно?', a: 'Да. Монтаж занимает около 20–30 минут.' },
-  { q: 'Безопасно ли использовать?', a: 'Да. Устройство оснащено системой защиты.' },
-  { q: 'Что нельзя измельчать?', a: 'Очень крупные кости, металл, стекло, пластик.' },
+  { icon: 'VolumeX', q: 'Шумный ли измельчитель?', a: 'Нет. Двигатель имеет низкий уровень шума.' },
+  { icon: 'Wrench', q: 'Можно ли установить самостоятельно?', a: 'Да. Монтаж занимает около 20–30 минут.' },
+  { icon: 'ShieldCheck', q: 'Безопасно ли использовать?', a: 'Да. Устройство оснащено системой защиты.' },
+  { icon: 'XCircle', q: 'Что нельзя измельчать?', a: 'Очень крупные кости, металл, стекло, пластик.' },
 ];
 
 function useReveal() {
@@ -60,12 +55,8 @@ function useReveal() {
   useEffect(() => {
     const els = ref.current?.querySelectorAll('.reveal') ?? [];
     const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) e.target.classList.add('is-visible');
-        });
-      },
-      { threshold: 0.12 }
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('is-visible'); }),
+      { threshold: 0.1 }
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
@@ -73,20 +64,24 @@ function useReveal() {
   return ref;
 }
 
-const Logo = ({ light }: { light?: boolean }) => (
-  <div className="flex items-center gap-2 select-none">
-    <div className="flex h-8 w-1.5 overflow-hidden rounded-sm">
-      <span className="w-1/3 bg-[#008C45]" />
-      <span className="w-1/3 bg-white" />
-      <span className="w-1/3 bg-[#CD212A]" />
+const ABLogo = ({ light }: { light?: boolean }) => (
+  <div className="flex items-center gap-3 select-none">
+    <div className={`flex h-11 w-11 items-center justify-center rounded-full border-2 ${light ? 'border-white' : 'border-[#2F343B]'}`}>
+      <span className={`font-display text-sm font-bold tracking-wider ${light ? 'text-white' : 'text-[#2F343B]'}`}>AB</span>
     </div>
-    <span
-      className={`font-display text-2xl font-semibold tracking-[0.25em] ${
-        light ? 'text-white' : 'text-graphite'
-      }`}
-    >
-      ALBABAGNO
-    </span>
+    <div>
+      <div className={`font-display text-base font-bold tracking-[0.2em] leading-none ${light ? 'text-white' : 'text-[#2F343B]'}`}>
+        ALBABAGNO
+      </div>
+      <div className={`text-[9px] tracking-[0.15em] uppercase leading-none mt-0.5 ${light ? 'text-white/60' : 'text-[#2F343B]/50'}`}>
+        Italian Perfect Sanitaryware
+      </div>
+      <div className="flex gap-0.5 mt-1">
+        <span className="h-[3px] w-3 bg-[#008C45] rounded-sm" />
+        <span className="h-[3px] w-3 bg-white border border-gray-200 rounded-sm" />
+        <span className="h-[3px] w-3 bg-[#CD212A] rounded-sm" />
+      </div>
+    </div>
   </div>
 );
 
@@ -94,121 +89,172 @@ export default function Index() {
   const ref = useReveal();
 
   return (
-    <div ref={ref} className="min-h-screen bg-white text-graphite">
-      {/* Header */}
-      <header className="fixed top-0 z-50 w-full border-b border-black/5 bg-white/80 backdrop-blur-md">
-        <div className="container flex h-16 items-center justify-between">
-          <Logo />
-          <nav className="hidden gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#product" className="transition-colors hover:text-navy">О продукте</a>
-            <a href="#specs" className="transition-colors hover:text-navy">Характеристики</a>
-            <a href="#reviews" className="transition-colors hover:text-navy">Отзывы</a>
-            <a href="#contacts" className="transition-colors hover:text-navy">Контакты</a>
+    <div ref={ref} className="min-h-screen bg-white font-sans text-[#2F343B]">
+
+      {/* HEADER */}
+      <header className="fixed top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm">
+        <div className="max-w-7xl mx-auto px-6 flex h-[70px] items-center justify-between">
+          <ABLogo />
+          <nav className="hidden lg:flex gap-8 text-[11px] font-semibold uppercase tracking-[0.12em] text-[#2F343B]/70">
+            <a href="#product" className="hover:text-[#274C77] transition-colors">О продукте</a>
+            <a href="#specs" className="hover:text-[#274C77] transition-colors">Характеристики</a>
+            <a href="#advantages" className="hover:text-[#274C77] transition-colors">Преимущества</a>
+            <a href="#reviews" className="hover:text-[#274C77] transition-colors">Отзывы</a>
+            <a href="#contacts" className="hover:text-[#274C77] transition-colors">Контакты</a>
           </nav>
-          <Button className="bg-navy text-white hover:bg-navy/90">Купить</Button>
+          <a href="#contacts" className="hidden md:inline-flex items-center border border-[#2F343B] px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:bg-[#2F343B] hover:text-white transition-all">
+            Связаться с нами
+          </a>
         </div>
       </header>
 
-      {/* Hero */}
-      <section className="relative overflow-hidden pt-16">
-        <div className="container grid items-center gap-12 py-20 md:grid-cols-2 md:py-28">
+      {/* HERO */}
+      <section
+        className="relative pt-[70px] overflow-hidden"
+        style={{ background: `url(${BG_IMG}) center/cover no-repeat` }}
+      >
+        <div className="absolute inset-0 bg-[#1a2535]/70" />
+        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
           <div className="animate-fade-in">
-            <p className="mb-4 text-sm font-medium uppercase tracking-[0.3em] text-navy">
-              Итальянское качество
-            </p>
-            <h1 className="font-display text-5xl font-semibold leading-tight text-graphite md:text-7xl">
-              Премиальные
-              <br />
-              измельчители
-              <br />
-              пищевых отходов
+            <h1 className="font-display text-6xl md:text-8xl font-bold text-white leading-none tracking-tight mb-4">
+              ALBABAGNO
             </h1>
-            <p className="mt-6 max-w-md text-lg leading-relaxed text-muted-foreground">
-              Тихая работа. Надёжность. Простая установка. Долгий срок службы —
-              для современной кухни.
+            <p className="text-white/80 text-lg md:text-xl font-light uppercase tracking-[0.15em] mb-3">
+              Итальянское качество<br />для современной кухни
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button size="lg" className="bg-navy px-8 text-white hover:bg-navy/90">
+            <p className="text-white/60 text-base mb-6">Премиальные измельчители пищевых отходов</p>
+            <div className="flex flex-wrap gap-x-5 gap-y-1 text-white/50 text-sm mb-10">
+              {['Тихая работа', 'Надёжность', 'Простая установка', 'Долгий срок службы'].map((t, i) => (
+                <span key={t} className="flex items-center gap-1">
+                  {i > 0 && <span className="text-white/30">•</span>}
+                  {t}
+                </span>
+              ))}
+            </div>
+            <div className="flex flex-wrap gap-4">
+              <button className="bg-[#274C77] text-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.1em] hover:bg-[#1e3a5c] transition-colors">
                 Купить
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-graphite px-8 text-graphite hover:bg-graphite hover:text-white"
-              >
+              </button>
+              <button className="border border-white text-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.1em] hover:bg-white hover:text-[#2F343B] transition-all">
                 Получить консультацию
-              </Button>
+              </button>
             </div>
           </div>
-          <div className="group relative flex justify-center">
-            <div className="absolute inset-0 -z-10 rounded-full bg-[#F5F5F5] blur-2xl" />
+          <div className="flex justify-center">
             <img
               src={PRODUCT_IMG}
-              alt="Измельчитель ALBABAGNO"
-              className="w-full max-w-md rounded-2xl object-cover shadow-2xl transition-transform duration-700 ease-out group-hover:scale-105 group-hover:-rotate-1"
+              alt="ALBABAGNO"
+              className="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:scale-105"
             />
           </div>
         </div>
       </section>
 
-      {/* Advantages */}
-      <section className="py-24" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="container">
-          <div className="reveal mb-16 text-center">
-            <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">Почему выбирают ALBABAGNO</h2>
+      {/* ПОЧЕМУ ALBABAGNO — белая секция */}
+      <section id="advantages" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="reveal text-center mb-12">
+            <h2 className="font-display text-3xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">
+              Почему выбирают ALBABAGNO
+            </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {advantages.map((a) => (
-              <div
-                key={a.title}
-                className="reveal group rounded-xl border border-white/10 bg-white/10 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:bg-white/20 hover:shadow-xl"
-              >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white transition-colors group-hover:bg-navy group-hover:text-white">
-                  <Icon name={a.icon} size={22} />
+              <div key={a.title} className="reveal border border-gray-200 p-6 text-center hover:border-[#274C77] hover:shadow-md transition-all group">
+                <div className="mb-4 flex justify-center text-[#274C77]">
+                  <Icon name={a.icon} size={32} />
                 </div>
-                <h3 className="mb-2 font-display text-2xl font-semibold text-white">{a.title}</h3>
-                <p className="text-sm leading-relaxed text-white/70">{a.text}</p>
+                <h3 className="font-semibold text-xs uppercase tracking-[0.1em] mb-2 text-[#2F343B]">{a.title}</h3>
+                <p className="text-xs text-gray-500 leading-relaxed">{a.text}</p>
+                <div className="mt-3 flex justify-center gap-0.5">
+                  <span className="h-[2px] w-2 bg-[#008C45]" />
+                  <span className="h-[2px] w-2 bg-gray-300" />
+                  <span className="h-[2px] w-2 bg-[#CD212A]" />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Product */}
-      <section id="product" className="py-24">
-        <div className="container grid items-center gap-14 md:grid-cols-2">
+      {/* О ПРОДУКТЕ */}
+      <section id="product" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="reveal">
-            <img
-              src={PRODUCT_IMG}
-              alt="Измельчитель ALBABAGNO"
-              className="w-full rounded-2xl object-cover shadow-xl"
-            />
+            <img src={PRODUCT_IMG} alt="ALBABAGNO" className="w-full max-w-md mx-auto drop-shadow-xl" />
           </div>
           <div className="reveal">
-            <p className="mb-3 text-sm font-medium uppercase tracking-[0.3em] text-navy">О продукте</p>
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">
+            <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-[0.1em] mb-4 text-[#2F343B]">
               Измельчитель пищевых отходов ALBABAGNO
             </h2>
-            <p className="mt-5 leading-relaxed text-muted-foreground">
+            <p className="text-gray-500 text-sm mb-6 leading-relaxed">
               Современное решение для кухни, позволяющее быстро перерабатывать остатки пищи.
             </p>
-
-            <div className="mt-8">
-              <p className="mb-3 font-medium text-graphite">Подходит для:</p>
-              <div className="flex flex-wrap gap-2">
-                {['овощей', 'фруктов', 'каш', 'мелких костей', 'скорлупы'].map((t) => (
-                  <span key={t} className="rounded-full bg-[#F5F5F5] px-4 py-1.5 text-sm text-graphite">
-                    {t}
-                  </span>
-                ))}
+            <div className="grid md:grid-cols-2 gap-8">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#2F343B]">Подходит для:</p>
+                <ul className="space-y-2">
+                  {['овощей', 'фруктов', 'каш', 'мелких костей', 'скорлупы'].map((t) => (
+                    <li key={t} className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#274C77] shrink-0" />
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.15em] mb-3 text-[#2F343B]">Преимущества:</p>
+                <ul className="space-y-2">
+                  {['Мощный двигатель', 'Защита от перегрузки', 'Нержавеющая камера', 'Низкий уровень вибрации', 'Долговечность'].map((b) => (
+                    <li key={b} className="flex items-center gap-2 text-sm text-gray-600">
+                      <Icon name="Check" size={14} className="shrink-0 text-[#274C77]" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {['Мощный двигатель', 'Защита от перегрузки', 'Нержавеющая камера измельчения', 'Низкий уровень вибрации', 'Долговечность'].map((b) => (
-                <div key={b} className="flex items-center gap-2 text-sm">
-                  <Icon name="Check" size={18} className="shrink-0 text-navy" />
-                  <span>{b}</span>
+      {/* ХАРАКТЕРИСТИКИ + КАК РАБОТАЕТ */}
+      <section id="specs" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
+          {/* Specs */}
+          <div className="reveal">
+            <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-[#2F343B]">
+              Характеристики
+            </h2>
+            <div className="divide-y divide-gray-100 border border-gray-100">
+              {specs.map(([k, v]) => (
+                <div key={k} className="flex justify-between px-4 py-3 hover:bg-gray-50 transition-colors">
+                  <span className="text-sm text-gray-500">{k}</span>
+                  <span className="text-sm font-semibold text-[#2F343B]">{v}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* How it works */}
+          <div className="reveal">
+            <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-[#2F343B]">
+              Как это работает
+            </h2>
+            <div className="flex items-center gap-2">
+              {steps.map((s, i) => (
+                <div key={s.n} className="flex items-center gap-2 flex-1">
+                  <div className="flex-1 text-center">
+                    <div className="relative inline-block">
+                      <img src={PRODUCT_IMG} alt="" className="w-20 h-20 object-cover rounded-full border-2 border-[#274C77]/20" />
+                      <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#274C77] text-white text-xs font-bold">
+                        {s.n}
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-500 mt-2 leading-tight">{s.title}</p>
+                  </div>
+                  {i < steps.length - 1 && (
+                    <Icon name="ArrowRight" size={16} className="text-gray-300 shrink-0" />
+                  )}
                 </div>
               ))}
             </div>
@@ -216,60 +262,19 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Specs */}
-      <section id="specs" className="py-24 text-white" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="container">
-          <div className="reveal mb-14 text-center">
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">Характеристики</h2>
+      {/* ГАЛЕРЕЯ */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="reveal text-center mb-10">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Галерея</h2>
           </div>
-          <div className="reveal mx-auto max-w-2xl divide-y divide-white/10">
-            {specs.map(([k, v]) => (
-              <div key={k} className="flex items-center justify-between py-5">
-                <span className="text-silver">{k}</span>
-                <span className="font-display text-2xl font-medium">{v}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* How it works */}
-      <section className="py-24">
-        <div className="container">
-          <div className="reveal mb-16 text-center">
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">Как это работает</h2>
-          </div>
-          <div className="grid gap-8 md:grid-cols-3">
-            {steps.map((s) => (
-              <div key={s.n} className="reveal relative rounded-xl bg-[#F5F5F5] p-8 text-center">
-                <span className="font-display text-6xl font-semibold text-silver/60">{s.n}</span>
-                <div className="mx-auto my-4 flex h-14 w-14 items-center justify-center rounded-full bg-navy text-white">
-                  <Icon name={s.icon} size={26} />
-                </div>
-                <h3 className="mb-2 font-display text-2xl font-semibold">{s.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{s.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section className="py-24" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="container">
-          <div className="reveal mb-14 text-center">
-            <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">Галерея</h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3">
-            {[0, 1, 2].map((i) => (
-              <div
-                key={i}
-                className="reveal group overflow-hidden rounded-xl bg-white shadow-sm"
-              >
+          <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <div key={i} className="reveal group overflow-hidden aspect-square bg-white border border-gray-100">
                 <img
                   src={PRODUCT_IMG}
                   alt={`ALBABAGNO ${i + 1}`}
-                  className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
             ))}
@@ -277,103 +282,125 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Why + Reviews */}
-      <section id="reviews" className="py-24">
-        <div className="container">
-          <div className="reveal mb-10 flex flex-wrap justify-center gap-3">
-            {reasons.map((r) => (
-              <span key={r} className="rounded-full border border-navy/20 px-5 py-2 text-sm text-navy">
-                {r}
-              </span>
-            ))}
-          </div>
-          <div className="mt-16 grid gap-6 md:grid-cols-3">
-            {reviews.map((r) => (
-              <div key={r.name} className="reveal rounded-xl border border-black/5 bg-white p-8 shadow-sm">
-                <div className="mb-4 flex text-navy">
-                  {Array.from({ length: 5 }).map((_, i) => (
-                    <Icon key={i} name="Star" size={18} className="fill-navy" />
-                  ))}
+      {/* ПОЧЕМУ ALBABAGNO (иконки) */}
+      <section
+        className="py-16"
+        style={{ background: `url(${BG_IMG}) center/cover no-repeat` }}
+      >
+        <div className="bg-[#1a2535]/80">
+          <div className="max-w-7xl mx-auto px-6 py-12">
+            <div className="reveal text-center mb-10">
+              <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">
+                Почему ALBABAGNO
+              </h2>
+            </div>
+            <div className="reveal grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
+              {reasons.map((r) => (
+                <div key={r.label} className="group">
+                  <div className="mb-3 flex justify-center">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-full border border-white/30 text-white/70 group-hover:border-white group-hover:text-white transition-all">
+                      <Icon name={r.icon} size={20} />
+                    </div>
+                  </div>
+                  <p className="text-xs text-white/70 leading-tight group-hover:text-white transition-colors">{r.label}</p>
                 </div>
-                <p className="font-display text-2xl leading-snug text-graphite">«{r.text}»</p>
-                <p className="mt-4 text-sm text-muted-foreground">— {r.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="py-24" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="container max-w-3xl">
-          <div className="reveal mb-14 text-center">
-            <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">Частые вопросы</h2>
-          </div>
-          <div className="reveal">
-            <Accordion type="single" collapsible className="w-full">
-              {faq.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-white/20">
-                  <AccordionTrigger className="text-left font-display text-xl font-medium text-white hover:text-silver">
-                    {f.q}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-white/70">{f.a}</AccordionContent>
-                </AccordionItem>
               ))}
-            </Accordion>
-          </div>
-        </div>
-      </section>
-
-      {/* Contacts */}
-      <section id="contacts" className="py-24 text-white" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
-        <div className="container grid gap-12 md:grid-cols-2">
-          <div className="reveal">
-            <Logo light />
-            <p className="mt-4 max-w-sm text-silver">
-              Итальянская сантехника и кухонное оборудование.
-            </p>
-            <div className="mt-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <Icon name="Phone" size={20} className="text-silver" />
-                <span>+7 (980) 888-00-77</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Icon name="Mail" size={20} className="text-silver" />
-                <span>art9019009090@mail.ru</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <Icon name="MapPin" size={20} className="text-silver" />
-                <span>Москва, Зеленоград, 3с2</span>
-              </div>
             </div>
           </div>
-          <form className="reveal space-y-4" onSubmit={(e) => e.preventDefault()}>
-            <h3 className="font-display text-3xl font-semibold">Свяжитесь с нами</h3>
-            <input
-              type="text"
-              placeholder="Ваше имя"
-              className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-silver/60 focus:border-white/40 focus:outline-none"
-            />
-            <input
-              type="tel"
-              placeholder="Телефон"
-              className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-silver/60 focus:border-white/40 focus:outline-none"
-            />
-            <textarea
-              placeholder="Сообщение"
-              rows={3}
-              className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-3 text-white placeholder:text-silver/60 focus:border-white/40 focus:outline-none"
-            />
-            <Button size="lg" className="w-full bg-navy text-white hover:bg-navy/90">
-              Связаться с нами
-            </Button>
-          </form>
         </div>
       </section>
 
-      <footer className="py-6 text-center text-sm text-white/40" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'bottom'}}>
-        © 2026 ALBABAGNO. Итальянское качество для современной кухни.
+      {/* ОТЗЫВЫ */}
+      <section id="reviews" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="reveal text-center mb-10">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Отзывы</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {reviews.map((r) => (
+              <div key={r.name} className="reveal border border-gray-100 p-6 hover:shadow-md transition-shadow">
+                <div className="flex gap-0.5 mb-4">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Icon key={i} name="Star" size={16} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+                <p className="text-sm text-gray-600 leading-relaxed mb-4">«{r.text}»</p>
+                <div className="flex items-center gap-2">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-gray-100">
+                    <Icon name="User" size={14} className="text-gray-400" />
+                  </div>
+                  <span className="text-xs font-semibold text-[#2F343B]">{r.name}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ЧАСТЫЕ ВОПРОСЫ */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="reveal text-center mb-10">
+            <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Частые вопросы</h2>
+          </div>
+          <div className="reveal grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+            {faq.map((f) => (
+              <div key={f.q} className="flex gap-4 bg-white border border-gray-100 p-5 hover:shadow-sm transition-shadow">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-[#274C77]/20 text-[#274C77]">
+                  <Icon name={f.icon} size={18} />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-[#2F343B] mb-1">{f.q}</p>
+                  <p className="text-xs text-gray-500 leading-relaxed">{f.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* КОНТАКТЫ / ФУТЕР */}
+      <footer
+        id="contacts"
+        style={{ background: `url(${BG_IMG}) center/cover no-repeat` }}
+      >
+        <div className="bg-[#1a2535]/85">
+          <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 items-center gap-8">
+            <div>
+              <ABLogo light />
+              <p className="text-white/50 text-xs mt-3 leading-relaxed">
+                Итальянская сантехника<br />и кухонное оборудование
+              </p>
+            </div>
+            <div className="space-y-3">
+              <a href="tel:+79808880077" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+                <Icon name="Phone" size={16} className="text-white/40 group-hover:text-white transition-colors" />
+                <span className="text-sm">+7 (980) 888-00-77</span>
+              </a>
+              <a href="mailto:art9019009090@mail.ru" className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group">
+                <Icon name="Mail" size={16} className="text-white/40 group-hover:text-white transition-colors" />
+                <span className="text-sm">art9019009090@mail.ru</span>
+              </a>
+              <div className="flex items-center gap-3 text-white/80">
+                <Icon name="MapPin" size={16} className="text-white/40" />
+                <span className="text-sm">Москва, Зеленоград, 3с2</span>
+              </div>
+            </div>
+            <div className="flex md:justify-end">
+              <a
+                href="tel:+79808880077"
+                className="inline-flex items-center border border-white px-7 py-3 text-xs font-bold uppercase tracking-[0.15em] text-white hover:bg-white hover:text-[#2F343B] transition-all"
+              >
+                Связаться с нами
+              </a>
+            </div>
+          </div>
+          <div className="border-t border-white/10 py-4 text-center text-[10px] text-white/30 tracking-wider uppercase">
+            © 2026 ALBABAGNO — Italian Perfect Sanitaryware
+          </div>
+        </div>
       </footer>
+
     </div>
   );
 }
