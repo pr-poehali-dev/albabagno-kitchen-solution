@@ -152,22 +152,22 @@ export default function Index() {
       </section>
 
       {/* Advantages */}
-      <section className="bg-[#F5F5F5] py-24">
+      <section className="py-24" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="container">
           <div className="reveal mb-16 text-center">
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">Почему выбирают ALBABAGNO</h2>
+            <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">Почему выбирают ALBABAGNO</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-4">
             {advantages.map((a) => (
               <div
                 key={a.title}
-                className="reveal group rounded-xl border border-black/5 bg-white p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+                className="reveal group rounded-xl border border-white/10 bg-white/10 p-8 backdrop-blur-sm transition-all duration-300 hover:-translate-y-2 hover:bg-white/20 hover:shadow-xl"
               >
-                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-navy/10 text-navy transition-colors group-hover:bg-navy group-hover:text-white">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-full bg-white/20 text-white transition-colors group-hover:bg-navy group-hover:text-white">
                   <Icon name={a.icon} size={22} />
                 </div>
-                <h3 className="mb-2 font-display text-2xl font-semibold">{a.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{a.text}</p>
+                <h3 className="mb-2 font-display text-2xl font-semibold text-white">{a.title}</h3>
+                <p className="text-sm leading-relaxed text-white/70">{a.text}</p>
               </div>
             ))}
           </div>
@@ -217,7 +217,7 @@ export default function Index() {
       </section>
 
       {/* Specs */}
-      <section id="specs" className="bg-graphite py-24 text-white">
+      <section id="specs" className="py-24 text-white" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="container">
           <div className="reveal mb-14 text-center">
             <h2 className="font-display text-4xl font-semibold md:text-5xl">Характеристики</h2>
@@ -255,10 +255,10 @@ export default function Index() {
       </section>
 
       {/* Gallery */}
-      <section className="bg-[#F5F5F5] py-24">
+      <section className="py-24" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="container">
           <div className="reveal mb-14 text-center">
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">Галерея</h2>
+            <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">Галерея</h2>
           </div>
           <div className="grid gap-6 md:grid-cols-3">
             {[0, 1, 2].map((i) => (
@@ -304,19 +304,19 @@ export default function Index() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-[#F5F5F5] py-24">
+      <section className="py-24" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="container max-w-3xl">
           <div className="reveal mb-14 text-center">
-            <h2 className="font-display text-4xl font-semibold md:text-5xl">Частые вопросы</h2>
+            <h2 className="font-display text-4xl font-semibold text-white md:text-5xl">Частые вопросы</h2>
           </div>
           <div className="reveal">
             <Accordion type="single" collapsible className="w-full">
               {faq.map((f, i) => (
-                <AccordionItem key={i} value={`item-${i}`} className="border-black/10">
-                  <AccordionTrigger className="text-left font-display text-xl font-medium hover:text-navy">
+                <AccordionItem key={i} value={`item-${i}`} className="border-white/20">
+                  <AccordionTrigger className="text-left font-display text-xl font-medium text-white hover:text-silver">
                     {f.q}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+                  <AccordionContent className="text-white/70">{f.a}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
@@ -325,7 +325,7 @@ export default function Index() {
       </section>
 
       {/* Contacts */}
-      <section id="contacts" className="bg-graphite py-24 text-white">
+      <section id="contacts" className="py-24 text-white" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'center'}}>
         <div className="container grid gap-12 md:grid-cols-2">
           <div className="reveal">
             <Logo light />
@@ -371,7 +371,7 @@ export default function Index() {
         </div>
       </section>
 
-      <footer className="bg-graphite py-6 text-center text-sm text-silver/60">
+      <footer className="py-6 text-center text-sm text-white/40" style={{backgroundImage: 'url(https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png)', backgroundSize: 'cover', backgroundPosition: 'bottom'}}>
         © 2026 ALBABAGNO. Итальянское качество для современной кухни.
       </footer>
     </div>
