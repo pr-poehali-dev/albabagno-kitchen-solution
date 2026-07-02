@@ -111,44 +111,16 @@ export default function Index() {
       </header>
 
       {/* HERO */}
-      <section
-        className="relative pt-[70px] overflow-hidden"
-        style={{ background: `url(${BG_IMG}) center/cover no-repeat` }}
-      >
-        <div className="absolute inset-0 bg-[#1a2535]/70" />
-        <div className="relative max-w-7xl mx-auto px-6 py-20 md:py-28 grid md:grid-cols-2 gap-10 items-center">
-          <div className="animate-fade-in">
-            <h1 className="font-display text-6xl md:text-8xl font-bold text-white leading-none tracking-tight mb-4">
-              ALBABAGNO
-            </h1>
-            <p className="text-white/80 text-lg md:text-xl font-light uppercase tracking-[0.15em] mb-3">
-              Итальянское качество<br />для современной кухни
-            </p>
-            <p className="text-white/60 text-base mb-6">Премиальные измельчители пищевых отходов</p>
-            <div className="flex flex-wrap gap-x-5 gap-y-1 text-white/50 text-sm mb-10">
-              {['Тихая работа', 'Надёжность', 'Простая установка', 'Долгий срок службы'].map((t, i) => (
-                <span key={t} className="flex items-center gap-1">
-                  {i > 0 && <span className="text-white/30">•</span>}
-                  {t}
-                </span>
-              ))}
-            </div>
-            <div className="flex flex-wrap gap-4">
-              <button className="bg-[#274C77] text-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.1em] hover:bg-[#1e3a5c] transition-colors">
-                Купить
-              </button>
-              <button className="border border-white text-white px-8 py-3 text-sm font-semibold uppercase tracking-[0.1em] hover:bg-white hover:text-[#2F343B] transition-all">
-                Получить консультацию
-              </button>
-            </div>
-          </div>
-          <div className="flex justify-center">
-            <img
-              src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/18ce371f-6e06-4497-912a-b1fa351e2144.png"
-              alt="ALBABAGNO"
-              className="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:scale-105"
-            />
-          </div>
+      <section className="relative pt-[70px] overflow-hidden">
+        <img
+          src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/48d10ebe-e217-43ee-95c3-7caa9b826180.png"
+          alt="ALBABAGNO"
+          className="w-full object-cover"
+        />
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex gap-4 md:hidden">
+          <a href="tel:+79808880077" className="bg-[#274C77] text-white px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.1em]">
+            Купить
+          </a>
         </div>
       </section>
 
