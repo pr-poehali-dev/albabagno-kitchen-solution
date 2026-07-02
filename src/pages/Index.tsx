@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
 const PRODUCT_IMG =
-  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/18ce371f-6e06-4497-912a-b1fa351e2144.png';
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/24639f17-c357-4511-85d1-0c6b16581a7f.png';
 const PRODUCT_IMG_2 =
-  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/b7ed9123-cc68-4b46-835e-689a9cd8bd65.jpg';
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/ef29f28f-2331-4a72-a4bb-2101bc949b93.jpg';
 const BG_IMG =
   'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png';
 
@@ -182,8 +182,8 @@ export default function Index() {
       {/* О ПРОДУКТЕ */}
       <section id="product" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div className="reveal">
-            <img src={PRODUCT_IMG} alt="ALBABAGNO" className="w-full max-w-md mx-auto drop-shadow-xl" />
+          <div className="reveal flex justify-center">
+            <img src={PRODUCT_IMG} alt="ALBABAGNO" className="w-full max-w-md mix-blend-multiply" />
           </div>
           <div className="reveal">
             <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-[0.1em] mb-4 text-[#2F343B]">
