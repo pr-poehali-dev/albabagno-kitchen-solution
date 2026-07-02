@@ -144,7 +144,7 @@ export default function Index() {
           </div>
           <div className="flex justify-center">
             <img
-              src={PRODUCT_IMG_2}
+              src={PRODUCT_IMG}
               alt="ALBABAGNO"
               className="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:scale-105"
             />
