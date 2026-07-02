@@ -68,9 +68,11 @@ function useReveal() {
 
 const ABLogo = ({ light }: { light?: boolean }) => (
   <div className="flex items-center gap-3 select-none">
-    <div className={`flex h-11 w-11 items-center justify-center rounded-full border-2 ${light ? 'border-white' : 'border-[#2F343B]'}`}>
-      <span className={`font-display text-sm font-bold tracking-wider ${light ? 'text-white' : 'text-[#2F343B]'}`}>AB</span>
-    </div>
+    <img
+      src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/c7cb9686-d4d3-44e5-bc07-c008e8e574a6.png"
+      alt="ALBABAGNO"
+      className={`h-11 w-11 object-contain ${light ? '' : 'brightness-0'}`}
+    />
     <div>
       <div className={`font-display text-base font-bold tracking-[0.2em] leading-none ${light ? 'text-white' : 'text-[#2F343B]'}`}>
         ALBABAGNO
@@ -80,7 +82,7 @@ const ABLogo = ({ light }: { light?: boolean }) => (
       </div>
       <div className="flex gap-0.5 mt-1">
         <span className="h-[3px] w-3 bg-[#008C45] rounded-sm" />
-        <span className="h-[3px] w-3 bg-white border border-gray-200 rounded-sm" />
+        <span className="h-[3px] w-3 bg-white/60 rounded-sm" />
         <span className="h-[3px] w-3 bg-[#CD212A] rounded-sm" />
       </div>
     </div>
