@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/accordion';
 
 const PRODUCT_IMG =
-  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/files/c6c8b099-2a1e-41cd-a60a-c2007fdec93d.jpg';
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9f69f713-3377-48c6-98f9-d12bdd107070.png';
 
 const advantages = [
   { icon: 'Sparkles', title: 'Итальянский дизайн', text: 'Современный внешний вид и качественные материалы.' },
