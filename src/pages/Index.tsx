@@ -2,7 +2,9 @@ import { useEffect, useRef } from 'react';
 import Icon from '@/components/ui/icon';
 
 const PRODUCT_IMG =
-  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9f69f713-3377-48c6-98f9-d12bdd107070.png';
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/18ce371f-6e06-4497-912a-b1fa351e2144.png';
+const PRODUCT_IMG_2 =
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/b7ed9123-cc68-4b46-835e-689a9cd8bd65.jpg';
 const BG_IMG =
   'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png';
 
@@ -24,7 +26,7 @@ const specs = [
 
 const steps = [
   { n: 1, img: PRODUCT_IMG, title: 'Остатки пищи попадают в мойку' },
-  { n: 2, img: PRODUCT_IMG, title: 'Измельчаются за несколько секунд' },
+  { n: 2, img: PRODUCT_IMG_2, title: 'Измельчаются за несколько секунд' },
   { n: 3, img: PRODUCT_IMG, title: 'Безопасно уходят в канализацию' },
 ];
 
@@ -142,7 +144,7 @@ export default function Index() {
           </div>
           <div className="flex justify-center">
             <img
-              src={PRODUCT_IMG}
+              src={PRODUCT_IMG_2}
               alt="ALBABAGNO"
               className="w-full max-w-sm drop-shadow-2xl transition-transform duration-700 hover:scale-105"
             />
@@ -245,7 +247,7 @@ export default function Index() {
                 <div key={s.n} className="flex items-center gap-2 flex-1">
                   <div className="flex-1 text-center">
                     <div className="relative inline-block">
-                      <img src={PRODUCT_IMG} alt="" className="w-20 h-20 object-cover rounded-full border-2 border-[#274C77]/20" />
+                      <img src={s.img} alt="" className="w-20 h-20 object-cover rounded-full border-2 border-[#274C77]/20" />
                       <span className="absolute -top-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-[#274C77] text-white text-xs font-bold">
                         {s.n}
                       </span>
@@ -269,10 +271,10 @@ export default function Index() {
             <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Галерея</h2>
           </div>
           <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-            {Array.from({ length: 5 }).map((_, i) => (
+            {[PRODUCT_IMG, PRODUCT_IMG_2, PRODUCT_IMG, PRODUCT_IMG_2, PRODUCT_IMG].map((img, i) => (
               <div key={i} className="reveal group overflow-hidden aspect-square bg-white border border-gray-100">
                 <img
-                  src={PRODUCT_IMG}
+                  src={img}
                   alt={`ALBABAGNO ${i + 1}`}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
