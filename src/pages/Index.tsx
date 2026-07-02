@@ -270,8 +270,14 @@ export default function Index() {
           <div className="reveal text-center mb-10">
             <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-[#2F343B]">Галерея</h2>
           </div>
-          <div className="grid grid-cols-3 md:grid-cols-5 gap-3">
-            {[PRODUCT_IMG, PRODUCT_IMG_2, PRODUCT_IMG, PRODUCT_IMG_2, PRODUCT_IMG].map((img, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+            {[
+              'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/cc81f39d-4a8d-44ac-a776-6c358aaf2f9c.jpg',
+              'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/e739ce20-2920-46e2-8f05-98691082e97a.jpg',
+              'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/51d85f73-b551-4fdd-b43a-a6e3fca55911.jpg',
+              'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/b1bbfc88-7536-4515-b7b0-30c5bdca637c.jpg',
+              'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/67963d55-bcd5-45c8-82ef-ba5f4e1ffffa.png',
+            ].map((img, i) => (
               <div key={i} className="reveal group overflow-hidden aspect-square bg-white border border-gray-100">
                 <img
                   src={img}
