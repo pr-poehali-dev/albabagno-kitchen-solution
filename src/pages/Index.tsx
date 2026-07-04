@@ -7,6 +7,8 @@ const PRODUCT_IMG_2 =
   'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/ef29f28f-2331-4a72-a4bb-2101bc949b93.jpg';
 const BG_IMG =
   'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/9ff675b5-47d1-4081-a293-55f5f0c8e3f2.png';
+const DROPS_IMG =
+  'https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/files/c14447f1-48d9-4fad-935b-a903d0da593b.jpg';
 
 const advantages = [
   { icon: 'MapPin', title: 'Итальянский дизайн', text: 'Современный внешний вид и качественные материалы.' },
@@ -93,11 +95,15 @@ export default function Index() {
   const ref = useReveal();
 
   return (
-    <div ref={ref} className="min-h-screen font-sans" style={{background: `url(${BG_IMG}) center/cover fixed`, backgroundColor: '#1a2535'}}>
+    <div ref={ref} className="relative min-h-screen font-sans" style={{background: `url(${BG_IMG}) center/cover fixed`, backgroundColor: '#3d5b7d'}}>
+      <div
+        className="pointer-events-none fixed inset-0 z-0 opacity-25 mix-blend-screen"
+        style={{ background: `url(${DROPS_IMG}) center/500px repeat` }}
+      />
 
       {/* HEADER */}
-      <header className="fixed top-0 z-50 w-full border-b border-white/10 shadow-sm" style={{background: `url(${BG_IMG}) center/cover`, backgroundColor: '#1a2535'}}>
-        <div className="absolute inset-0 bg-[#1a2535]/80 backdrop-blur-sm" />
+      <header className="fixed top-0 z-50 w-full border-b border-white/10 shadow-sm" style={{background: `url(${BG_IMG}) center/cover`, backgroundColor: '#3d5b7d'}}>
+        <div className="absolute inset-0 bg-[#3d5b7d]/70 backdrop-blur-sm" />
         <div className="relative max-w-7xl mx-auto px-6 flex h-[70px] items-center justify-between">
           <ABLogo light />
           <nav className="hidden lg:flex gap-8 text-[11px] font-semibold uppercase tracking-[0.12em] text-white/70">
@@ -107,7 +113,7 @@ export default function Index() {
             <a href="#reviews" className="hover:text-white transition-colors">Отзывы</a>
             <a href="#contacts" className="hover:text-white transition-colors">Контакты</a>
           </nav>
-          <a href="#contacts" className="hidden md:inline-flex items-center border border-white/50 text-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:bg-white hover:text-[#1a2535] transition-all">
+          <a href="#contacts" className="hidden md:inline-flex items-center border border-white/50 text-white px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.12em] hover:bg-white hover:text-[#3d5b7d] transition-all">
             Связаться с нами
           </a>
         </div>
@@ -128,7 +134,7 @@ export default function Index() {
       </section>
 
       {/* ПОЧЕМУ ALBABAGNO */}
-      <section id="advantages" className="py-16 bg-[#1a2535]/60">
+      <section id="advantages" className="relative z-10 py-16 bg-[#3d5b7d]/40">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-12">
             <h2 className="font-display text-3xl font-bold uppercase tracking-[0.15em] text-white">
@@ -155,7 +161,7 @@ export default function Index() {
       </section>
 
       {/* О ПРОДУКТЕ */}
-      <section id="product" className="py-16 bg-[#1a2535]/80">
+      <section id="product" className="relative z-10 py-16 bg-[#3d5b7d]/60">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="reveal flex justify-center">
             <img src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/7a3ad343-0366-4629-a2d7-6c2d3a6a85ce.jpg" alt="ALBABAGNO" className="w-full max-w-md rounded-xl object-cover" />
@@ -196,7 +202,7 @@ export default function Index() {
       </section>
 
       {/* ХАРАКТЕРИСТИКИ + КАК РАБОТАЕТ */}
-      <section id="specs" className="py-16 bg-[#1a2535]/60">
+      <section id="specs" className="relative z-10 py-16 bg-[#3d5b7d]/40">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
           <div className="reveal">
             <h2 className="font-display text-xl font-bold uppercase tracking-[0.15em] mb-6 text-white">
@@ -238,7 +244,7 @@ export default function Index() {
       </section>
 
       {/* ГАЛЕРЕЯ */}
-      <section className="py-16 bg-[#1a2535]/80">
+      <section className="relative z-10 py-16 bg-[#3d5b7d]/60">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-10">
             <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">Галерея</h2>
@@ -265,10 +271,10 @@ export default function Index() {
 
       {/* ПОЧЕМУ ALBABAGNO (иконки) */}
       <section
-        className="py-16"
+        className="relative z-10 py-16"
         style={{ background: `url(${BG_IMG}) center/cover no-repeat` }}
       >
-        <div className="bg-[#1a2535]/80">
+        <div className="bg-[#3d5b7d]/60">
           <div className="max-w-7xl mx-auto px-6 py-12">
             <div className="reveal text-center mb-10">
               <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">
@@ -292,7 +298,7 @@ export default function Index() {
       </section>
 
       {/* ОТЗЫВЫ */}
-      <section id="reviews" className="py-16 bg-[#1a2535]/60">
+      <section id="reviews" className="relative z-10 py-16 bg-[#3d5b7d]/40">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-10">
             <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">Отзывы</h2>
@@ -319,7 +325,7 @@ export default function Index() {
       </section>
 
       {/* ЧАСТЫЕ ВОПРОСЫ */}
-      <section className="py-16 bg-[#1a2535]/80">
+      <section className="relative z-10 py-16 bg-[#3d5b7d]/60">
         <div className="max-w-7xl mx-auto px-6">
           <div className="reveal text-center mb-10">
             <h2 className="font-display text-2xl font-bold uppercase tracking-[0.15em] text-white">Частые вопросы</h2>
@@ -343,9 +349,10 @@ export default function Index() {
       {/* КОНТАКТЫ / ФУТЕР */}
       <footer
         id="contacts"
+        className="relative z-10"
         style={{ background: `url(${BG_IMG}) center/cover no-repeat` }}
       >
-        <div className="bg-[#1a2535]/85">
+        <div className="bg-[#3d5b7d]/70">
           <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-3 items-center gap-8">
             <div>
               <ABLogo light />
