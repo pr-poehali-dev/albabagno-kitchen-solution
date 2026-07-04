@@ -269,6 +269,17 @@ export default function Index() {
         </div>
       </section>
 
+      {/* КАК РАБОТАЕТ ИЗМЕЛЬЧИТЕЛЬ */}
+      <section className="relative z-10 py-16 bg-white/45">
+        <div className="reveal max-w-6xl mx-auto px-6">
+          <img
+            src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/0786395f-57fe-4bfd-8d00-d0078693cca4.png"
+            alt="Как работает измельчитель ALBABAGNO"
+            className="w-full rounded-xl shadow-lg"
+          />
+        </div>
+      </section>
+
       {/* ПОЧЕМУ ALBABAGNO (иконки) */}
       <section
         className="relative z-10 py-16"
