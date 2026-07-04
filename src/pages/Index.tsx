@@ -62,9 +62,9 @@ function useReveal() {
 
 const ABLogo = ({ light: _light }: { light?: boolean }) => (
   <img
-    src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/2f0a0ddc-d360-4061-bcca-3012b05cae03.jpg"
+    src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/1511fa9a-669f-445a-a9cb-5c89d721015d.png"
     alt="ALBABAGNO — Perfect Sanitaryware"
-    className="h-14 w-auto object-contain rounded-md select-none"
+    className="h-14 w-auto object-contain select-none"
   />
 );
 
