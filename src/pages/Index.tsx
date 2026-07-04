@@ -68,27 +68,12 @@ function useReveal() {
   return ref;
 }
 
-const ABLogo = ({ light }: { light?: boolean }) => (
-  <div className="flex items-center gap-3 select-none">
-    <img
-      src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/c7cb9686-d4d3-44e5-bc07-c008e8e574a6.png"
-      alt="ALBABAGNO"
-      className={`h-11 w-11 object-contain ${light ? '' : 'brightness-0'}`}
-    />
-    <div>
-      <div className={`font-display text-base font-bold tracking-[0.2em] leading-none ${light ? 'text-white' : 'text-[#2F343B]'}`}>
-        ALBABAGNO
-      </div>
-      <div className={`text-[9px] tracking-[0.15em] uppercase leading-none mt-0.5 ${light ? 'text-white/60' : 'text-[#2F343B]/50'}`}>
-        Italian Perfect Sanitaryware
-      </div>
-      <div className="flex gap-0.5 mt-1">
-        <span className="h-[3px] w-3 bg-[#008C45] rounded-sm" />
-        <span className="h-[3px] w-3 bg-white/60 rounded-sm" />
-        <span className="h-[3px] w-3 bg-[#CD212A] rounded-sm" />
-      </div>
-    </div>
-  </div>
+const ABLogo = ({ light: _light }: { light?: boolean }) => (
+  <img
+    src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/2f0a0ddc-d360-4061-bcca-3012b05cae03.jpg"
+    alt="ALBABAGNO — Perfect Sanitaryware"
+    className="h-14 w-auto object-contain rounded-md select-none"
+  />
 );
 
 export default function Index() {
