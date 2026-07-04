@@ -122,7 +122,7 @@ export default function Index() {
       {/* HERO */}
       <section className="relative pt-[70px] overflow-hidden">
         <img
-          src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/48d10ebe-e217-43ee-95c3-7caa9b826180.png"
+          src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/7f5a4700-42ea-4023-afad-2504affa51c4.png"
           alt="ALBABAGNO"
           className="w-full object-cover"
         />
