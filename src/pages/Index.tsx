@@ -141,7 +141,7 @@ export default function Index() {
       <section id="product" className="relative z-10 py-16 bg-white/45">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div className="reveal flex justify-center">
-            <img src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/7a3ad343-0366-4629-a2d7-6c2d3a6a85ce.jpg" alt="ALBABAGNO" className="w-full max-w-md rounded-xl object-cover" />
+            <img src="https://cdn.poehali.dev/projects/dfb41d82-10b1-42f4-87ac-018af4036e6a/bucket/2c5fd4ff-eeb7-4800-85d7-a654f7a3c844.png" alt="ALBABAGNO" className="w-full max-w-md rounded-xl object-cover" />
           </div>
           <div className="reveal">
             <h2 className="font-display text-2xl md:text-3xl font-bold uppercase tracking-[0.1em] mb-4 text-[#1a3a5c]">
